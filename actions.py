@@ -1,16 +1,38 @@
 
-def Add(a: int, b: int) -> int:
-    result = a + b
+def Add(a: float, b: float) -> float:
+    """
+    Складывает два целых числа и выводит результат
+    """
+    result: float = a + b
     print(result)
+    return result
 
-def Sub(a: int, b: int) -> int:
-    result = a - b
+def Sub(a: float, b: float) -> float:
+    """
+    Вычитает из первого числа второе и выводит результат
+    """
+    result: float = a - b
     print(result)
+    return result
 
-def Mult(a: int, b: int) -> int:
-    result = a * b
+def Mult(a: float, b: float) -> float:
+    """
+    Перемножает два целых числа и выводит результат
+    """
+    result: float = a * b
     print(result)
-    
-def Div(a: int, b: int) -> float:
-    result = a / b
-    print(result)
+    return result
+
+def Div(a: float, b: float) -> float:
+    """
+    Делит первое число на второе и выводит результат.
+    При делении на 0 выводит ошибку
+    """
+    try:
+        result: float = a / b
+        print(result)
+        return result
+    except ZeroDivisionError:
+        print("На ноль делить нельзя!")
+        result = 0
+        return result

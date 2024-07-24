@@ -13,6 +13,9 @@ if (__name__ == "__main__"):
     for op, func in operations.items():
         if (op in term):
             term_list = term.split(op)
-            x1: int = int(term_list[0])
-            x2: int = int(term_list[1])
-            func(x1, x2)
+            try:
+                x1: float = float(term_list[0])
+                x2: float = float(term_list[1])
+                func(x1, x2)
+            except:
+                print("Ошибка! Введено некорректное выражение!")
