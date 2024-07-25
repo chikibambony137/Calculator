@@ -1,3 +1,4 @@
+import logger as l
 
 def Add(a: float, b: float) -> float:
     """
@@ -33,6 +34,7 @@ def Div(a: float, b: float) -> float:
         print(result)
         return result
     except ZeroDivisionError:
+        l.logger.error("ZeroDivisionError")
         print("На ноль делить нельзя!")
         result = 0
         return result
