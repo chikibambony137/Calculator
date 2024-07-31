@@ -1,6 +1,6 @@
 import actions, logger as l
 
-def main(term):
+def calculate(term: str) -> str:
     # action -> func
     operations: dict = {
             "+": actions.Add,
@@ -8,23 +8,22 @@ def main(term):
             "*": actions.Mult,
             "/": actions.Div
     }
-    l.logger.info("dict \"operations\" created")
-    
-    l.logger.info("starting loop")
+
+    term = term.strip()     #delete "\n"
+
+    l.logger.info("calculating...")
     for op, func in operations.items():
         if (op in term):
-
             l.logger.debug(f"operation is \"{op}\"")
-            term_list = term.split(op)
+            term_list: list = term.split(op)      #split from "2+2" to ["2", "2"]
+            l.logger.debug(f"term_list = {term_list}")
             try:
                 x1: float = float(term_list[0])
                 x2: float = float(term_list[1])
                 return func(x1, x2)
-                #l.logger.info("end program...")
             except:
                 l.logger.error("Incorrect term")
                 return "Error!"
-
-"""if (__name__ == "__main__"):
-l.logger.info("start program...")
-main()"""
+        else:
+            l.logger.error("Incorrect term")
+            return "Error!"
