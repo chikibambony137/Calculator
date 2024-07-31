@@ -18,6 +18,9 @@ def buttonEq_Click(textbox):
     l.logger.info(f"the result is {res}")
     textbox.insert("end", res)
 
+def clear_textbox(textbox):
+    textbox.delete("1.0", "end")
+
 def Add(a: float, b: float) -> str:
     """
     Складывает два целых числа и выводит результат
