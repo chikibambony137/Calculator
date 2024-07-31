@@ -37,11 +37,14 @@ def init_objects(app):
     button0 = customtkinter.CTkButton(app, text="0", width=130, command=lambda: actions.print_to_textbox("0", textbox1))
     button0.grid(row=5, column=1, padx=0, pady=0, sticky="ew")
 
+    buttonSum = customtkinter.CTkButton(app, text="+", width=130, command=lambda: actions.print_to_textbox("+", textbox1))
+    buttonSum.grid(row=5, column=0, padx=0, pady=0, sticky="ew")
+
     buttonEq = customtkinter.CTkButton(app, text="=", width=130, command=lambda: actions.buttonEq_Click(textbox1))
     buttonEq.grid(row=5, column=2, padx=0, pady=0, sticky="ew")
 
-    buttonSum = customtkinter.CTkButton(app, text="+", width=130, command=lambda: actions.print_to_textbox("+", textbox1))
-    buttonSum.grid(row=5, column=0, padx=0, pady=0, sticky="ew")
+    buttonClear = customtkinter.CTkButton(app, text="C", width=130, command=lambda: actions.clear_textbox(textbox1))
+    buttonClear.grid(row=6, column=1, columnspan=2, padx=0, pady=0, sticky="ew")
 
 def main_window():
     l.logger.info("start program...")
