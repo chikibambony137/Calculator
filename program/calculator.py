@@ -34,7 +34,10 @@ def calculate(term: str) -> str:
             try:
                 x1: float = float(term_list[0])
                 x2: float = float(term_list[1])
-                return func(x1, x2)
+                res = func(x1, x2)
+                if (float(res) % 1 == 0):
+                    res = int(float(res))
+                return res
             except:
                 l.logger.error("Incorrect term")
                 return "Error! Incorrect term"
