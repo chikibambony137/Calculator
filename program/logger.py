@@ -2,7 +2,7 @@ from logging import getLogger, basicConfig, INFO, DEBUG, FileHandler
 
 # file handler setup:
 file_handler = FileHandler("data.log")
-file_handler.setLevel(DEBUG)
+file_handler.setLevel("WARNING")
 
 # logger setup:
 logger = getLogger(__name__)

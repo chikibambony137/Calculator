@@ -6,24 +6,36 @@ def calculate(term: str) -> str:
             "+": actions.Add,
             "-": actions.Sub,
             "*": actions.Mult,
-            "/": actions.Div
+            "/": actions.Div,
+            "^": actions.Degree
     }
 
-    term = term.strip()     #delete "\n"
+    # delete "\n"
+    term = term.strip()
 
     l.logger.info("calculating...")
+
+    # check exist of operation in dict
+    i: int = 0
+    for op in operations:
+        if (term.find(op) == -1):
+            i+=1
+            if (i == len(operations)):
+                return "Error! Operation not found"
+
+    # spliting string
     for op, func in operations.items():
         if (op in term):
             l.logger.debug(f"operation is \"{op}\"")
-            term_list: list = term.split(op)      #split from "2+2" to ["2", "2"]
+            term_list: list = term.split(op)      # split from str"2+2" to list["2", "2"]
             l.logger.debug(f"term_list = {term_list}")
+
+            # calculating
             try:
                 x1: float = float(term_list[0])
                 x2: float = float(term_list[1])
                 return func(x1, x2)
             except:
                 l.logger.error("Incorrect term")
-                return "Error!"
-        else:
-            l.logger.error("Incorrect term")
-            return "Error!"
+                return "Error! Incorrect term"
+        
